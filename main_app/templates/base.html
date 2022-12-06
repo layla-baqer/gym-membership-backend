@@ -21,11 +21,11 @@
         <ul class="right">
           <li><a href="/about">About</a></li>
           {% if user.is_authenticated %}
-            {% if Membership.user_id != user.id %}
-              <li><a href="{% url 'membership' user.id %}">My Membership, {{ membership }}, {{ user.id }}</a></li>
-            {% else %}
-              <li><a href="/membership/create">My Membership</a></li>
-            {% endif %}
+            <!-- {% if Membership.user_id != user.id %} -->
+            <li><a href="{% url 'membership' user.id %}">My Membership</a></li>
+            <!-- {% else %}
+              <li><a href="/membership/create">My Membership</a></li> -->
+            <!-- {% endif %} -->
             <li><a href="/classes">Classes</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}

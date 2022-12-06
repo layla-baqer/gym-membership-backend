@@ -3,6 +3,25 @@
 {% block content %}
 
     <h1>Membership Details</h1>
-    <p>{{ membership.location }}</p>
+    <h4>{{ user.username }}</h4>
+    <p>Valid to use at {{ membership.get_location_display }} branch</p>
+    <p>Starting from {{ membership.start_date }} until {{ membership.end_date }}</p>
+
+    {% for class in classes %}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">{{ class.name }}</span>
+                <p>Location: {{ class.get_location_display }}</p>
+                <p>Trainer: {{ class.trainer }}</p>
+                <span>Every</span>
+                {% for day in class.days %}
+                    <span> {{ day }}, </span>
+                {% endfor %}
+                <span>at {{ class.time }} for {{ class.duration }}</span>
+                <p>Starting from {{ class.start_date }} to {{ class.end_date }}</p>
+                <p>Available seats: {{ class.seats }}</p>
+            </div>
+        </div>
+    {% endfor %}
 
 {% endblock %}

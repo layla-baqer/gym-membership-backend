@@ -12,6 +12,7 @@ urlpatterns = [
     path('membership/create/', views.MembershipCreate.as_view(), name='membership_create'),
     path('membership/<int:user_id>/', views.membership, name='membership'),
     path('membership/<int:user_id>/update/', views.MembershipUpdate.as_view(), name='membership_update'),
+    path('membership/<int:membership_id>/assoc_class/<int:class_id>/', views.assoc_class, name='assoc_class'),
 
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup', views.signup, name='signup'),

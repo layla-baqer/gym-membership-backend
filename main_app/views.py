@@ -30,9 +30,21 @@ def class_detail(request, class_id):
     return HttpResponse('<h1>Class Details</h1>')
 
 @login_required
+def assoc_class(request, membership_id, class_id):
+  Membership.objects.get(user_id=membership_id).classes.add(class_id)
+  return redirect('membership', user_id=membership_id)
+
+@login_required
 def membership(request, user_id):
-    membership = Membership.objects.get(user_id=user_id)
-    return render(request, 'membership/index.html', {'membership': membership})
+    try:
+        classes_list = Membership.objects.get(user_id=user_id).classes.all()
+        membership = Membership.objects.get(user_id=user_id)
+        return render(request, 'membership/index.html', {
+            'membership': membership,
+            'classes': classes_list
+            })
+    except:
+        return redirect('membership_create')
 
 class MembershipCreate(CreateView):
     model = Membership

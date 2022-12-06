@@ -7,11 +7,22 @@
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ class.name }}</span>
-            <p>Location: {{ class.location }}</p>
+            <p>Location: {{ class.get_location_display }}</p>
             <p>Trainer: {{ class.trainer }}</p>
-            <p>Trainer: {{ class.trainer }}</p>
-            <p>Trainer: {{ class.trainer }}</p>
+            <span>Every</span>
+            {% for day in class.days %}
+                <span> {{ day }}, </span>
+            {% endfor %}
+            <span>at {{ class.time }} for {{ class.duration }}</span>
+            <p>Starting from {{ class.start_date }} to {{ class.end_date }}</p>
+            <p>Available seats: {{ class.seats }}</p>
         </div>
+        <div class="card-action">
+            <form action="{% url 'assoc_class' user.id class.id %}" method="post">
+                {% csrf_token %}
+              <button type="submit" class="btn">Register</button>
+            </form>
+          </div>
     </div>
 {% endfor %}
 
