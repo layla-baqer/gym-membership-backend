@@ -3,14 +3,14 @@
 {% block content %}
 
     <h1>Membership Details</h1>
-
+    <h4>{{ user.username }}</h4>
+    <p>Valid to use at {{ membership.get_location_display }} branch</p>
+    <p>Starting from {{ membership.start_date }} until {{ membership.end_date }}</p>
+    
     <div class="card-action">
         <a href="{% url 'membership_update' user.id %}">Edit</a>
     </div>
 
-    <h4>{{ user.username }}</h4>
-    <p>Valid to use at {{ membership.get_location_display }} branch</p>
-    <p>Starting from {{ membership.start_date }} until {{ membership.end_date }}</p>
 
     {% for class in classes %}
         <div class="card">

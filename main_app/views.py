@@ -32,11 +32,19 @@ def class_detail(request, class_id):
 @login_required
 def assoc_class(request, membership_id, class_id):
   Membership.objects.get(user_id=membership_id).classes.add(class_id)
+  one_class = Class.objects.get(id=class_id)
+  one_class.seats -= 1
+  one_class.save()
+
   return redirect('membership', user_id=membership_id)
 
 @login_required
 def unassoc_class(request, membership_id, class_id):
   Membership.objects.get(user_id=membership_id).classes.remove(class_id)
+  one_class = Class.objects.get(id=class_id)
+  one_class.seats += 1
+  one_class.save()
+
   return redirect('membership', user_id=membership_id)
 
 @login_required
