@@ -21,6 +21,12 @@
                 <p>Starting from {{ class.start_date }} to {{ class.end_date }}</p>
                 <p>Available seats: {{ class.seats }}</p>
             </div>
+            <div class="card-action">
+                <form action="{% url 'unassoc_class' user.id class.id %}" method="post">
+                    {% csrf_token %}
+                  <button type="submit" class="btn">Remove</button>
+                </form>
+              </div>
         </div>
     {% endfor %}
 

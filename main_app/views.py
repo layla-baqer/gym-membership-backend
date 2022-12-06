@@ -35,6 +35,11 @@ def assoc_class(request, membership_id, class_id):
   return redirect('membership', user_id=membership_id)
 
 @login_required
+def unassoc_class(request, membership_id, class_id):
+  Membership.objects.get(user_id=membership_id).classes.remove(class_id)
+  return redirect('membership', user_id=membership_id)
+
+@login_required
 def membership(request, user_id):
     try:
         classes_list = Membership.objects.get(user_id=user_id).classes.all()
