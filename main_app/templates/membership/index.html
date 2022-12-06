@@ -29,9 +29,9 @@
             <div class="card-action">
                 <form action="{% url 'unassoc_class' user.id class.id %}" method="post">
                     {% csrf_token %}
-                  <button type="submit" class="btn">Remove</button>
+                <button type="submit" class="btn">Remove</button>
                 </form>
-              </div>
+            </div>
         </div>
     {% endfor %}
 

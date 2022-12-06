@@ -17,12 +17,21 @@
             <p>Starting from {{ class.start_date }} to {{ class.end_date }}</p>
             <p>Available seats: {{ class.seats }}</p>
         </div>
-        <div class="card-action">
-            <form action="{% url 'assoc_class' user.id class.id %}" method="post">
-                {% csrf_token %}
-              <button type="submit" class="btn">Register</button>
-            </form>
-          </div>
+        {% if class.seats > 0 %}
+            <div class="card-action">
+                <form action="{% url 'assoc_class' user.id class.id %}" method="post">
+                    {% csrf_token %}
+                <button type="submit" class="btn">Register</button>
+                </form>
+            </div>
+        {% else %}
+            <div class="card-action">
+                <form action="" method="">
+                    {% csrf_token %}
+                <button type="submit" class="btn">Class Full</button>
+                </form>
+            </div>
+        {% endif %}
     </div>
 {% endfor %}
 
