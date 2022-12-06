@@ -59,10 +59,11 @@ class MembershipCreate(CreateView):
         return super().form_valid(form)
     success_url='/home'
 
-class MembershipUpdate(CreateView):
+# LoginRequiredMixin has to be used with classes, @login_required will cause an error
+class MembershipUpdate(LoginRequiredMixin, UpdateView):
     model = Membership
-    fields = ['location']
-    success_url=''
+    fields = ['location', 'start_date', 'end_date']
+    success_url='/home'
 
 
 ############################
