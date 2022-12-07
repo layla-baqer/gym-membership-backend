@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /* background-color: #d0c0da; */
+    background-color: none;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+    color: #fff;
+    font-family: sans-serif;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer.page-footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: right;
+    background-color: white;
+    color: black;
+    margin-top: 50px;
+}
+
+nav .nav-wrapper {
+    /* background-color: #3F1561; */
+    background-color: none;
+    background-image: linear-gradient(to right, #a517ba, #5f1782);
+    color: #fff;
+}
+
+.card {
+    background-color: white;
+}
+.card .card-content {
+    /* position: absolute; */
+    top: 30px;
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+.card .card-image img {
+    height: 200px;
+    width: 200px;
+    padding: 24px;
+}
+
+.card-align div {
+    display: inline-block;
+}
+
+/* Navbar */
+
+.navbar-membership {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Home */
+
+.home-container {
+    height: 480px;
+    margin-top: 80px;
+    display: flex;
+}
+.home-content {
+    margin-top: 50px;
+}
+.home-img {
+    height: 100px;
+    width: 100px;
+}
+
+.home-container2 {
+    height: 700px;
+    margin-top: 100px;
+}
+.trainer-pic {
+    display: flex;
+    margin-top: 20px;
+}
+.trainer-pic img {
+    height: 125px;
+    width: 140px;
+}
+.trainer-pic h5 {
+    margin: 50px auto auto 40px;
+}
+
+/* About */
+
+.about-container {
+    display: flex;
+}
+.about-content {
+    text-align: justify;
+}
+.about-contacts {
+    width: 500px;
+}
+.about-content-space {
+    width: 200px;
+}
+
+/* Membership */
+
+.membership-card-container {
+    border-radius: 10px;
+    background-color: #430e5e;
+    color: #fff;
+    width: 480px;
+    display: flex;
+}
+.membership-card-content {
+    padding: 10px;
+    margin-left: 10px;
+}
+#membership-card-edit {
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+#membership-card-edit a {
+    color: white;
+    background-color: rgb(47, 117, 221);
+    padding: 8px 28px;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+/* btn */
+
+.card-action .btn {
+    background-color: rgb(47, 117, 221);
+}
+.card-action .btn:hover {
+    background-color: rgb(38, 98, 189);
+}
+
+/* Classes */
+
+.card-action #btn-class-full {
+    background-color: rgb(238, 90, 53);
+}
+.card-action #btn-class-full:hover {
+    cursor: auto;
+}
+.card .card-content {
+    margin-top: 40px;
+}
